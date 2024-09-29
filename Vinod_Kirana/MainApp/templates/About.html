@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BlueCart E-commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --background-color: #ecf0f1;
+            --text-color: #2c3e50;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .navbar {
+            background-color: var(--primary-color);
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .jumbotron {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4rem 2rem;
+            margin-bottom: 2rem;
+        }
+        .about-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .team-member {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+        }
+        .timeline:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            margin-left: -1px;
+            background-color: var(--primary-color);
+        }
+        .timeline > li {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        .timeline > li:before,
+        .timeline > li:after {
+            content: " ";
+            display: table;
+        }
+        .timeline > li:after {
+            clear: both;
+        }
+        .timeline > li .timeline-panel {
+            float: left;
+            position: relative;
+            width: 46%;
+            padding: 20px;
+            border: 1px solid #d4d4d4;
+            border-radius: 8px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+        }
+        .timeline > li .timeline-panel:before {
+            position: absolute;
+            top: 26px;
+            right: -15px;
+            display: inline-block;
+            border-top: 15px solid transparent;
+            border-left: 15px solid #ccc;
+            border-right: 0 solid #ccc;
+            border-bottom: 15px solid transparent;
+            content: " ";
+        }
+        .timeline > li .timeline-panel:after {
+            position: absolute;
+            top: 27px;
+            right: -14px;
+            display: inline-block;
+            border-top: 14px solid transparent;
+            border-left: 14px solid #fff;
+            border-right: 0 solid #fff;
+            border-bottom: 14px solid transparent;
+            content: " ";
+        }
+        .timeline > li .timeline-badge {
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 1.4em;
+            text-align: center;
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            margin-left: -25px;
+            background-color: var(--primary-color);
+            z-index: 100;
+            border-top-right-radius: 50%;
+            border-top-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+        .timeline > li.timeline-inverted > .timeline-panel {
+            float: right;
+        }
+        .timeline > li.timeline-inverted > .timeline-panel:before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: -15px;
+            right: auto;
+        }
+        .timeline > li.timeline-inverted > .timeline-panel:after {
+            border-left-width: 0;
+            border-right-width: 14px;
+            left: -14px;
+            right: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">BlueCart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "home" %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "product" %}">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url "about" %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url "contact" %}">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">About BlueCart</h1>
+            <p class="lead">Discover our story, mission, and the team behind your favorite e-commerce platform.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="about-section">
+            <h2 class="mb-4">Our Story</h2>
+            <p>BlueCart was founded in 2015 with a simple mission: to make online shopping accessible, enjoyable, and reliable for everyone. What started as a small operation run by two college friends has grown into a thriving e-commerce platform serving thousands of customers worldwide.</p>
+            <p>Our journey hasn't always been smooth sailing, but our commitment to quality products, excellent customer service, and continuous innovation has helped us overcome every challenge and emerge stronger.</p>
+        </div>
+
+        <div class="about-section">
+            <h2 class="mb-4">Our Mission</h2>
+            <p>At BlueCart, our mission is to revolutionize the online shopping experience by providing:</p>
+            <ul>
+                <li>A wide range of high-quality products at competitive prices</li>
+                <li>Exceptional customer service that goes above and beyond</li>
+                <li>A user-friendly platform that makes shopping a breeze</li>
+                <li>Secure and reliable transactions for peace of mind</li>
+                <li>Fast and efficient delivery to your doorstep</li>
+            </ul>
+            <p>We believe that everyone deserves access to great products and a fantastic shopping experience, and we work tirelessly to make that a reality.</p>
+        </div>
+
+        <div class="about-section">
+            <h2 class="mb-4">Meet Our Team</h2>
+            <div class="row">
+                <div class="col-md-4 team-member">
+                    <img src="/placeholder.svg?height=150&width=150" alt="John Doe">
+                    <h3>John Doe</h3>
+                    <p>Co-founder & CEO</p>
+                </div>
+                <div class="col-md-4 team-member">
+                    <img src="/placeholder.svg?height=150&width=150" alt="Jane Smith">
+                    <h3>Jane Smith</h3>
+                    <p>Co-founder & CTO</p>
+                </div>
+                <div class="col-md-4 team-member">
+                    <img src="/placeholder.svg?height=150&width=150" alt="Mike Johnson">
+                    <h3>Mike Johnson</h3>
+                    <p>Head of Customer Experience</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2 class="mb-4">Our Journey</h2>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-badge"><i class="fa fa-flag"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">BlueCart Founded</h4>
+                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 2015</small></p>
+                        </div>
+                        <div class="timeline-body">
+                            <p>John and Jane launch BlueCart from their garage, selling a small selection of electronics.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-badge"><i class="fa fa-users"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Expansion</h4>
+                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 2017</small></p>
+                        </div>
+                        <div class="timeline-body">
+                            <p>BlueCart expands its product range and hires its first employees.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-badge"><i class="fa fa-trophy"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Award-Winning Service</h4>
+                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 2019</small></p>
+                        </div>
+                        <div class="timeline-body">
+                            <p>BlueCart wins "Best Customer Service" award in the E-commerce category.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-badge"><i class="fa fa-rocket"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Going Global</h4>
+                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 2021</small></p>
+                        </div>
+                        <div class="timeline-body">
+                            <p>BlueCart expands operations to serve customers worldwide.</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-badge"><i class="fa fa-heart"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">1 Million Happy Customers</h4>
+                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 2023</small></p>
+                        </div>
+                        <div class="timeline-body">
+                            <p>BlueCart celebrates serving over 1 million satisfied customers.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About Us</h5>
+                    <p>BlueCart is your one-stop shop for all your needs. We offer high-quality products at competitive prices.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="#" class="text-white">Products</a></li>
+                        <li><a href="about.html" class="text-white">About</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <address>
+                        123 E-commerce Street<br>
+                        City, State 12345<br>
+                        Email: info@bluecart.com<br>
+                        Phone: (123) 456-7890
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 BlueCart. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
